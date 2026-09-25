@@ -1,0 +1,8 @@
+{
+  "name": "Remix U.S. Barber",
+  "description": "Professional barbering and appointment booking for U.S. Barber in Catonsville, Maryland.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
