@@ -3,7 +3,7 @@ import { ServiceItem, BarberItem, BusinessHoursItem } from '../types';
 import { servicesService } from '../services/services.service';
 import { barbersService } from '../services/barbers.service';
 import { businessHoursService } from '../services/business-hours.service';
-import { handleImageError } from '../lib/images';
+import { handleImageError, getServiceImageUrl } from '../lib/images';
 import {
   Scissors,
   Clock,
@@ -192,17 +192,16 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 key={service.id}
                 className="bg-[#1A1B1D] border border-[#2E3035] rounded overflow-hidden flex flex-col justify-between group hover:border-[#C5A059]/60 transition-all"
               >
-                {service.image_url && (
-                  <div className="h-44 overflow-hidden relative">
-                    <img
-                      src={service.image_url}
-                      alt={service.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={handleImageError}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A1B1D] via-transparent to-transparent" />
-                  </div>
-                )}
+                <div className="h-44 overflow-hidden relative">
+                  <img
+                    src={getServiceImageUrl(service)}
+                    alt={`${service.name} barber service at U.S. Barber`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={handleImageError}
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1B1D] via-transparent to-transparent pointer-events-none" />
+                </div>
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                   <div>
                     <div className="flex items-start justify-between gap-2 mb-2">

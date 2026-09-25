@@ -1,7 +1,7 @@
 import { ServiceItem } from '../types';
 import { supabase, isSupabaseConfigured } from '../lib/supabase/client';
 import { localDb } from '../lib/supabase/mock-store';
-import { getImageUrl } from '../lib/images';
+import { getServiceImageUrl } from '../lib/images';
 
 export const servicesService = {
   async getAll(includeInactive = false): Promise<ServiceItem[]> {
@@ -22,7 +22,7 @@ export const servicesService = {
           duration_minutes: Number(item.duration_minutes) || 30,
           display_order: Number(item.display_order) || 0,
           active: Boolean(item.active),
-          image_url: item.image_url ? getImageUrl(item.image_url) : undefined,
+          image_url: getServiceImageUrl(item),
         })) as ServiceItem[];
       }
     }
@@ -32,7 +32,7 @@ export const servicesService = {
     const services = includeInactive ? sorted : sorted.filter((s) => s.active);
     return services.map((s) => ({
       ...s,
-      image_url: s.image_url ? getImageUrl(s.image_url) : undefined,
+      image_url: getServiceImageUrl(s),
     }));
   },
 
@@ -46,7 +46,7 @@ export const servicesService = {
           duration_minutes: Number(data.duration_minutes) || 30,
           display_order: Number(data.display_order) || 0,
           active: Boolean(data.active),
-          image_url: data.image_url ? getImageUrl(data.image_url) : undefined,
+          image_url: getServiceImageUrl(data),
         } as ServiceItem;
       }
     }
@@ -54,7 +54,7 @@ export const servicesService = {
     if (!item) return null;
     return {
       ...item,
-      image_url: item.image_url ? getImageUrl(item.image_url) : undefined,
+      image_url: getServiceImageUrl(item),
     };
   },
 

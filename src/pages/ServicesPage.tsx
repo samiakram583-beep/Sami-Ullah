@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ServiceItem } from '../types';
 import { servicesService } from '../services/services.service';
 import { Clock, Scissors, Check, Sparkles } from 'lucide-react';
-import { handleImageError, getImageUrl } from '../lib/images';
+import { handleImageError, getServiceImageUrl } from '../lib/images';
 
 interface ServicesPageProps {
   onNavigate: (path: string, initialServiceId?: string) => void;
@@ -82,20 +82,19 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               key={service.id}
               className="bg-[#1A1B1D] border border-[#2E3035] rounded overflow-hidden flex flex-col justify-between hover:border-[#C5A059]/60 transition-all group"
             >
-              {service.image_url && (
-                <div className="h-48 overflow-hidden relative">
-                  <img
-                    src={getImageUrl(service.image_url)}
-                    alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={handleImageError}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1A1B1D] via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 bg-[#121314]/80 px-2.5 py-1 rounded text-[11px] font-semibold tracking-wider uppercase text-[#C5A059] border border-[#2E3035]">
-                    {service.category}
-                  </div>
+              <div className="h-48 overflow-hidden relative">
+                <img
+                  src={getServiceImageUrl(service)}
+                  alt={`${service.name} professional grooming at U.S. Barber`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={handleImageError}
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1B1D] via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-3 left-3 bg-[#121314]/80 px-2.5 py-1 rounded text-[11px] font-semibold tracking-wider uppercase text-[#C5A059] border border-[#2E3035]">
+                  {service.category}
                 </div>
-              )}
+              </div>
 
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>

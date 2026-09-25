@@ -1,3 +1,8 @@
+/**
+ * U.S. Barber — Web Application Entry Point
+ * Routing, global authentication context, and layout wrapper.
+ */
+
 import React, { useState, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
 import { ToastProvider } from './components/common/Toast';

@@ -250,10 +250,10 @@ $$;
 -- 12. SEED INITIAL SERVICES & BARBERS
 INSERT INTO public.services (id, name, slug, description, price, duration_minutes, category, image_url, active, display_order)
 VALUES
-    ('srv-1', 'Classic Haircut [Placeholder]', 'classic-haircut', 'Precision clipper and shear haircut tailored to your preferred style, neck shave, and hot towel finish.', 35.00, 30, 'Haircuts', 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80', true, 1),
-    ('srv-2', 'Beard Trim & Sculpt [Placeholder]', 'beard-trim-sculpt', 'Detailed beard shaping, line cleanup, trimming to length, and conditioning balm application.', 25.00, 25, 'Beard & Grooming', 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80', true, 2),
-    ('srv-3', 'Hot Towel Straight Razor Shave [Placeholder]', 'hot-towel-shave', 'Traditional straight razor shave with essential oil pre-shave, steaming hot towels, rich warm lather, and cooling splash.', 35.00, 35, 'Beard & Grooming', 'https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=800&q=80', true, 3),
-    ('srv-4', 'The Executive Package [Placeholder]', 'the-executive-package', 'Full signature haircut, complete hot towel straight razor neck shave, beard sculpt, and scalp treatment.', 60.00, 55, 'Packages', 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80', true, 4)
+    ('srv-1', 'Classic Haircut [Placeholder]', 'classic-haircut', 'Precision clipper and shear haircut tailored to your preferred style, neck shave, and hot towel finish.', 35.00, 30, 'Haircuts', '/images/classic-haircut.jpg', true, 1),
+    ('srv-2', 'Beard Trim & Sculpt [Placeholder]', 'beard-trim-sculpt', 'Detailed beard shaping, line cleanup, trimming to length, and conditioning balm application.', 25.00, 25, 'Beard & Grooming', '/images/beard-trim.jpg', true, 2),
+    ('srv-3', 'Hot Towel Straight Razor Shave [Placeholder]', 'hot-towel-shave', 'Traditional straight razor shave with essential oil pre-shave, steaming hot towels, rich warm lather, and cooling splash.', 35.00, 35, 'Beard & Grooming', '/images/hot-towel-shave.jpg', true, 3),
+    ('srv-4', 'The Executive Package [Placeholder]', 'the-executive-package', 'Full signature haircut, complete hot towel straight razor neck shave, beard sculpt, and scalp treatment.', 60.00, 55, 'Packages', '/images/executive-service.jpg', true, 4)
 ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO public.barbers (id, name, bio, image_url, specialties, active, display_order)

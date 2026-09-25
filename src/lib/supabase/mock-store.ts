@@ -9,6 +9,7 @@ import {
   ContactMessageItem,
   ShopSettings,
 } from '../../types';
+import { getServiceImageUrl } from '../images';
 
 // Default initial data matching Catonsville Maryland U.S. Barber facts
 const DEFAULT_BUSINESS_HOURS: BusinessHoursItem[] = [
@@ -30,7 +31,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     price: 35.00,
     duration_minutes: 30,
     category: 'Haircuts',
-    image_url: '/images/barber_craft_cut_1790211484330.jpg',
+    image_url: '/images/classic-haircut.jpg',
     active: true,
     display_order: 1,
     created_at: new Date().toISOString(),
@@ -43,7 +44,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     price: 25.00,
     duration_minutes: 25,
     category: 'Beard & Grooming',
-    image_url: '/images/barber_hot_towel_shave_1790211495750.jpg',
+    image_url: '/images/beard-trim.jpg',
     active: true,
     display_order: 2,
     created_at: new Date().toISOString(),
@@ -56,7 +57,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     price: 35.00,
     duration_minutes: 35,
     category: 'Beard & Grooming',
-    image_url: '/images/barber_hot_towel_shave_1790211495750.jpg',
+    image_url: '/images/hot-towel-shave.jpg',
     active: true,
     display_order: 3,
     created_at: new Date().toISOString(),
@@ -69,7 +70,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     price: 65.00,
     duration_minutes: 55,
     category: 'Packages',
-    image_url: '/images/hero_us_barber_1790211473323.jpg',
+    image_url: '/images/executive-service.jpg',
     active: true,
     display_order: 4,
     created_at: new Date().toISOString(),
@@ -82,7 +83,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     price: 28.00,
     duration_minutes: 30,
     category: 'Haircuts',
-    image_url: '/images/shop_interior_details_1790211506738.jpg',
+    image_url: '/images/senior-junior-cut.jpg',
     active: true,
     display_order: 5,
     created_at: new Date().toISOString(),
@@ -236,7 +237,11 @@ class LocalDatabaseStore {
 
   // --- Services ---
   getServices(): ServiceItem[] {
-    return this.getItem<ServiceItem[]>('services', DEFAULT_SERVICES);
+    const list = this.getItem<ServiceItem[]>('services', DEFAULT_SERVICES);
+    return list.map((s) => ({
+      ...s,
+      image_url: getServiceImageUrl(s),
+    }));
   }
 
   saveService(item: ServiceItem): void {

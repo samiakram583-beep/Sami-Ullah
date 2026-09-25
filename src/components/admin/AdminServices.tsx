@@ -313,7 +313,7 @@ export const AdminServices: React.FC = () => {
                 <label className="block text-[#F5F2EA] font-semibold mb-1">Image URL (Optional)</label>
                 <input
                   type="text"
-                  placeholder="https://..."
+                  placeholder="/images/classic-haircut.jpg"
                   value={editItem.image_url || ''}
                   onChange={(e) => setEditItem({ ...editItem, image_url: e.target.value })}
                   className="w-full bg-[#121314] border border-[#2E3035] p-2 text-[#F5F2EA] rounded focus:border-[#C5A059]"

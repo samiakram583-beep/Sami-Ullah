@@ -28,7 +28,7 @@ VALUES
         35.00,
         30,
         'Haircuts',
-        '/images/barber_craft_cut_1790211484330.jpg',
+        '/images/classic-haircut.jpg',
         true,
         1
     ),
@@ -39,7 +39,7 @@ VALUES
         25.00,
         25,
         'Beard & Grooming',
-        '/images/barber_hot_towel_shave_1790211495750.jpg',
+        '/images/beard-trim.jpg',
         true,
         2
     ),
@@ -50,7 +50,7 @@ VALUES
         35.00,
         35,
         'Beard & Grooming',
-        '/images/barber_hot_towel_shave_1790211495750.jpg',
+        '/images/hot-towel-shave.jpg',
         true,
         3
     ),
@@ -61,7 +61,7 @@ VALUES
         65.00,
         55,
         'Packages',
-        '/images/hero_us_barber_1790211473323.jpg',
+        '/images/executive-service.jpg',
         true,
         4
     ),
@@ -72,7 +72,7 @@ VALUES
         28.00,
         30,
         'Haircuts',
-        '/images/shop_interior_details_1790211506738.jpg',
+        '/images/senior-junior-cut.jpg',
         true,
         5
     )
